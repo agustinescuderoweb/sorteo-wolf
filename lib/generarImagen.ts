@@ -1,5 +1,11 @@
-import { createCanvas, loadImage } from "canvas";
+import { createCanvas, loadImage, registerFont } from "canvas";
 import path from "path";
+
+// 🔥 registrar font
+registerFont(
+  path.join(process.cwd(), "public/fonts/Inter.ttf"),
+  { family: "Inter" }
+);
 
 export async function generarImagen(numero: string) {
   const imagePath = path.join(process.cwd(), "public/img/sorteo.jpeg");
@@ -12,7 +18,7 @@ export async function generarImagen(numero: string) {
   ctx.drawImage(image, 0, 0);
 
   // estilo texto
-  ctx.font = "70px sans-serif";
+  ctx.font = "bold 130px Inter";
   ctx.fillStyle = "#ffffff";
   ctx.textAlign = "center";
 
